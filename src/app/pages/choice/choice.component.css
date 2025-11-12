@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    justify-content: center;
+    grid-column: auto;
+}
+.card-grid{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}

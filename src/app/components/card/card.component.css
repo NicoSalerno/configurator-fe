@@ -1,0 +1,22 @@
+.card {
+  background-color: #f3f4f6;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 250px;
+  margin: 0.5rem;
+}
+
+.card-image {
+  width: 200px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0;
+}

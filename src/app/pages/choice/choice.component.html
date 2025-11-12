@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>Scegli un modello</h2>
+</div>
+  <div class="card-grid">
+    <app-card
+      *ngFor="let model of models"
+      [fileImmagineSfondo]="model.FileImageSfondo"
+      [title]="model.Nome"
+    ></app-card>
+  </div>
