@@ -1,1 +1,34 @@
-<p>configurator works!</p>
+<app-navbar></app-navbar>
+
+<div class="layout">
+  
+  <!-- SINISTRA: AUTO -->
+  <div *ngIf="loaded" class="container-car">
+    <div
+      class="car-wrapper"
+      [ngStyle]="{
+        'background-image':
+          modelloID === 1
+            ? 'url(assets/images/grancabrio/sfondo_grancabrio.png)'
+            : 'url(assets/images/granturismo/sfondo_granturismo.png)'
+      }"
+    >
+      <img
+        *ngFor="let optional of optionals"
+        [src]="optional.FileImageSfondo"
+        [alt]="optional.NomeOptional"
+        class="layer"
+      />
+    </div>
+  </div>
+
+  <!-- DESTRA: CARD DEGLI OPTIONAL -->
+  <div class="container-cards">
+    <app-card
+      *ngFor="let model of optionals"
+      [fileImmagineSfondo]="model.FileImageSfondo"
+      [title]="model.NomeOptional"
+    ></app-card>
+  </div>
+
+</div>

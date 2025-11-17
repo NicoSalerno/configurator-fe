@@ -5,6 +5,7 @@
   text-align: center;
   width: 250px;
   margin: 0.5rem;
+  cursor: pointer;
 }
 
 .card-image {

@@ -14,7 +14,7 @@ const routes: Routes = [
     component:ChoiceComponent
   },
   {
-    path:'configurator',
+    path:'configurator/:id',
     component:ConfiguratorComponent
   }
 ];

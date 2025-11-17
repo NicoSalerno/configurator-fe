@@ -1,7 +1,7 @@
 /* Container principale */
 .navbar {
-  background-color: #1a1a1a; /* bg-gray-900 */
-  max-width: 100%;         /* max-w (esempio) */
+  background-color: #1a1a1a; 
+  max-width: 100%;
   display: flex;              /* flex */
   justify-content: space-between; /* justify-between */
   align-items: center;        /* items-center */
@@ -17,16 +17,15 @@
   }
 }
 
-/* Stile dei link */
+
 .navbar a {
-  color: #ffffff;             /* text-white */
+  color: #ffffff;
   font-weight: 600;           /* font-semibold */
   font-size: 0.9375rem;       /* 15px ~ text-sm/6 */
   line-height: 1.5;           /* line-height simile a sm/6 */
   text-decoration: none;
 }
 
-/* Hover opzionale */
 .navbar a:hover {
   text-decoration: underline;
 }

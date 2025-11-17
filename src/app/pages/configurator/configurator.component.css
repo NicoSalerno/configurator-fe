@@ -1,0 +1,44 @@
+/* Layout generale */
+.layout {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+}
+
+/* colonna sinistra */
+.container-car {
+  flex: 2; /* più grande */
+  display: flex;
+  justify-content: center;
+}
+
+/* colonna destra */
+.container-cards {
+  flex: 1; /* più stretta */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px); /* scroll delle card */
+}
+
+/* wrapper della macchina */
+.car-wrapper {
+  position: relative;
+  width: 900px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* layer sovrapposti */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}

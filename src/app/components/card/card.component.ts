@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -12,4 +13,14 @@ export class CardComponent {
   @Input()
   fileImmagineSfondo!: string;
 
+  @Input() 
+  routerLink!: any[];
+
+  protected routeSrv = inject(Router);
+
+  onClick() {
+    if (this.routerLink) {
+      this.routeSrv.navigate(this.routerLink);
+    }
+  }
 }
