@@ -12,6 +12,8 @@ import { OptionalModello } from 'src/app/utils/modello.model';
 export class ConfiguratorComponent {
   modelloID!: number;
   optionals!: OptionalModello[];
+  allOptionals!: OptionalModello[];
+  groupedOptionals: { [categoria: string]: OptionalModello[] } = {};
   loaded: boolean = false;
 
   protected routeSrv = inject(ActivatedRoute);
@@ -20,13 +22,37 @@ export class ConfiguratorComponent {
 
   ngOnInit() {
     this.modelloID = Number(this.routeSrv.snapshot.paramMap.get('id'));
-    console.log('Modello ID ricevuto:', this.modelloID);
 
-    this.configuratorSrv.Optional(this.modelloID).subscribe((optional) => {
+    this.configuratorSrv.DefaultOptional(this.modelloID).subscribe((optional) => {
       this.optionals = optional;
-      this.loaded = true //setto loaded a true e carico lo sfondo per evitare problemi grafici
-      console.log(this.optionals);
+      this.loaded = true;
     });
+
+    this.configuratorSrv.Optionals(this.modelloID).subscribe((results) => {
+      this.allOptionals = results;
+      console.log(this.allOptionals);
+      this.groupedOptionals = results.reduce((acc, item) => {
+        if (!acc[item.NomeCategoria]) {
+          acc[item.NomeCategoria] = [];
+        }
+        acc[item.NomeCategoria].push(item);
+        return acc;
+      }, {} as { [categoria: string]: OptionalModello[] });
+    });
+  }
+
+  selectOptional(opt: OptionalModello) {
+    const categoria = opt.CategoriaOptionalID;
+
+    const index = this.optionals.findIndex(o => o.CategoriaOptionalID === categoria);
+
+    if (index !== -1) {
+      this.optionals[index] = opt;
+    } else {
+      this.optionals.push(opt);
+    }
+
+    this.optionals = [...this.optionals];
   }
 
   ngOnDestroy(): void {

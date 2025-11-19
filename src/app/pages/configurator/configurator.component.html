@@ -1,8 +1,6 @@
 <app-navbar></app-navbar>
 
 <div class="layout">
-  
-  <!-- SINISTRA: AUTO -->
   <div *ngIf="loaded" class="container-car">
     <div
       class="car-wrapper"
@@ -22,13 +20,48 @@
     </div>
   </div>
 
-  <!-- DESTRA: CARD DEGLI OPTIONAL -->
   <div class="container-cards">
-    <app-card
-      *ngFor="let model of optionals"
-      [fileImmagineSfondo]="model.FileImageSfondo"
-      [title]="model.NomeOptional"
-    ></app-card>
-  </div>
+    <div
+      *ngFor="let categoria of groupedOptionals | keyvalue"
+      class="category-block"
+    >
+      <h2>{{ categoria.key }}</h2>
 
+      <div class="category-scroll">
+        <div
+          *ngFor="let opt of categoria.value"
+          class="optional-item"
+          [ngSwitch]="opt.CategoriaOptionalID"
+        >
+          <img
+            *ngSwitchCase="1"
+            [src]="opt.FileImagePaint"
+            class="card-image"
+            (click)="selectOptional(opt)"
+          />
+
+          <img
+            *ngSwitchCase="2"
+            [src]="opt.FileImageRim"
+            class="card-image"
+            (click)="selectOptional(opt)"
+          />
+
+          <img
+            *ngSwitchCase="3"
+            [src]="opt.FileImageCalipers"
+            class="card-image"
+            (click)="selectOptional(opt)"
+          />
+
+          <img
+            *ngSwitchDefault
+            [src]="opt.FileImageSfondo"
+            class="card-image"
+            (click)="selectOptional(opt)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

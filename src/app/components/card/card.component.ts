@@ -13,6 +13,9 @@ export class CardComponent {
   @Input()
   fileImmagineSfondo!: string;
 
+  @Input()
+  prezzo!: number;
+
   @Input() 
   routerLink!: any[];
 

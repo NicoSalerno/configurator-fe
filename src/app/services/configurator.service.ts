@@ -29,7 +29,24 @@ export class ConfiguratorService {
     });
   }
 
-  Optional(ModelloID: number) {
+  DefaultOptional(ModelloID: number) {
+    return this.http
+      .get<OptionalModello[]>(`${this.baseUrl}/defaultModel`, {
+        params: { ModelloID: ModelloID.toString() },
+      })
+      .pipe(
+        map((models) =>
+          models.map((m) => ({
+            ...m,
+            FileImageSfondo: `assets/images/${m.NomeModello.toLowerCase()}/${
+              m.FileImage
+            }`,
+          }))
+        )
+      );
+  }
+
+    Optionals(ModelloID: number) {
     return this.http
       .get<OptionalModello[]>(`${this.baseUrl}/optional`, {
         params: { ModelloID: ModelloID.toString() },
@@ -39,6 +56,33 @@ export class ConfiguratorService {
           models.map((m) => ({
             ...m,
             FileImageSfondo: `assets/images/${m.NomeModello.toLowerCase()}/${
+              m.FileImage
+            }`,
+          }))
+        )
+      ).pipe(
+        map((models) =>
+          models.map((m) => ({
+            ...m,
+            FileImagePaint: `assets/images/paint/${
+              m.FileImage
+            }`,
+          }))
+        )
+      ).pipe(
+        map((models) =>
+          models.map((m) => ({
+            ...m,
+            FileImageRim: `assets/images/rims/${
+              m.FileImage
+            }`,
+          }))
+        )
+      ).pipe(
+        map((models) =>
+          models.map((m) => ({
+            ...m,
+            FileImageCalipers: `assets/images/calipers/${
               m.FileImage
             }`,
           }))
