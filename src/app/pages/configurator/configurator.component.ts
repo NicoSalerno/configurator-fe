@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { ConfiguratorService } from 'src/app/services/configurator.service';
 import { OptionalModello } from 'src/app/utils/modello.model';
@@ -19,14 +19,17 @@ export class ConfiguratorComponent {
   protected routeSrv = inject(ActivatedRoute);
   protected configuratorSrv = inject(ConfiguratorService);
   protected destroyed$ = new Subject<void>();
+  protected router = inject(Router);
 
   ngOnInit() {
     this.modelloID = Number(this.routeSrv.snapshot.paramMap.get('id'));
 
-    this.configuratorSrv.DefaultOptional(this.modelloID).subscribe((optional) => {
-      this.optionals = optional;
-      this.loaded = true;
-    });
+    this.configuratorSrv
+      .DefaultOptional(this.modelloID)
+      .subscribe((optional) => {
+        this.optionals = optional;
+        this.loaded = true;
+      });
 
     this.configuratorSrv.Optionals(this.modelloID).subscribe((results) => {
       this.allOptionals = results;
@@ -44,7 +47,9 @@ export class ConfiguratorComponent {
   selectOptional(opt: OptionalModello) {
     const categoria = opt.CategoriaOptionalID;
 
-    const index = this.optionals.findIndex(o => o.CategoriaOptionalID === categoria);
+    const index = this.optionals.findIndex(
+      (o) => o.CategoriaOptionalID === categoria
+    );
 
     if (index !== -1) {
       this.optionals[index] = opt;
@@ -53,6 +58,17 @@ export class ConfiguratorComponent {
     }
 
     this.optionals = [...this.optionals];
+
+    console.log('optionals selezionati', this.optionals);
+  }
+
+  infoForCheckout() {
+    this.router.navigate(['/check-out'], {
+      state: {
+        optionals: this.optionals, 
+        modelloID: this.modelloID,
+      },
+    });
   }
 
   ngOnDestroy(): void {

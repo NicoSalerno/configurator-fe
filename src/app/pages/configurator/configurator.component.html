@@ -33,26 +33,35 @@
           class="optional-item"
           [ngSwitch]="opt.CategoriaOptionalID"
         >
-          <img
-            *ngSwitchCase="1"
-            [src]="opt.FileImagePaint"
-            class="card-image"
-            (click)="selectOptional(opt)"
-          />
+          <div class="tooltip">
+            <img
+              *ngSwitchCase="1"
+              [src]="opt.FileImagePaint"
+              class="card-image"
+              (click)="selectOptional(opt)"
+            />
+            <span class="tooltiptext">{{ opt.NomeOptional }}</span>
+          </div>
 
-          <img
-            *ngSwitchCase="2"
-            [src]="opt.FileImageRim"
-            class="card-image"
-            (click)="selectOptional(opt)"
-          />
+          <div class="tooltip">
+            <img
+              *ngSwitchCase="2"
+              [src]="opt.FileImageRim"
+              class="card-image"
+              (click)="selectOptional(opt)"
+            />
+            <span class="tooltiptext">{{ opt.NomeOptional }}</span>
+          </div>
 
-          <img
-            *ngSwitchCase="3"
-            [src]="opt.FileImageCalipers"
-            class="card-image"
-            (click)="selectOptional(opt)"
-          />
+          <div class="tooltip">
+            <img
+              *ngSwitchCase="3"
+              [src]="opt.FileImageCalipers"
+              class="card-image"
+              (click)="selectOptional(opt)"
+            />
+            <span class="tooltiptext">{{ opt.NomeOptional }}</span>
+          </div>
 
           <img
             *ngSwitchDefault
@@ -63,5 +72,11 @@
         </div>
       </div>
     </div>
+    <button
+      (click)="infoForCheckout()"
+      class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
+    >
+      Vai al resoconto
+    </button>
   </div>
 </div>

@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="layout">
+  <h1>Checkout</h1>
+
+  <div *ngIf="loaded" class="container-car">
+    <div
+      class="car-wrapper"
+      [ngStyle]="{
+        'background-image':
+          modelloID === 1
+            ? 'url(assets/images/grancabrio/sfondo_grancabrio.png)'
+            : 'url(assets/images/granturismo/sfondo_granturismo.png)'
+      }"
+    >
+      <img
+        *ngFor="let optional of optionals"
+        [src]="optional.FileImageSfondo"
+        [alt]="optional.NomeOptional"
+        class="layer"
+      />
+    </div>
+  </div>
+</div>

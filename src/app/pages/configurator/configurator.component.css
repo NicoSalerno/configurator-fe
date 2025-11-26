@@ -2,6 +2,7 @@
   display: flex;
   gap: 40px;
   padding: 20px;
+  flex-direction: row;
 }
 
 .container-car {
@@ -17,6 +18,17 @@
   flex-direction: column;
   gap: 30px;
   overflow-y: auto;
+}
+
+.container-cards button {
+  max-width: 40%;
+  background-color: hsl(41, 96%, 56%);
+  border: none;
+  padding: 10px;
+}
+
+.container-cards button:hover {
+  cursor: pointer;
 }
 
 .category-block {
@@ -56,6 +68,7 @@
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 20px;
+  flex-direction: row;
 }
 
 .layer {
@@ -67,4 +80,25 @@
   object-fit: contain;
   pointer-events: none;
   border-radius: 20px;
+}
+
+.tooltip {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 130px;
+  background-color: rgba(0, 0, 0, 0.616);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

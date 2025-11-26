@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ChoiceComponent } from './pages/choice/choice.component';
 import { ConfiguratorComponent } from './pages/configurator/configurator.component';
+import { CheckOutComponent } from './pages/check-out/check-out.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:'configurator/:id',
     component:ConfiguratorComponent
+  },
+  {
+    path:'check-out',
+    component:CheckOutComponent
   }
 ];
 

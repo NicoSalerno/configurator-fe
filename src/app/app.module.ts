@@ -9,6 +9,7 @@ import { ConfiguratorComponent } from './pages/configurator/configurator.compone
 import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CheckOutComponent } from './pages/check-out/check-out.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     ChoiceComponent,
     ConfiguratorComponent,
     CardComponent,
-    NavbarComponent
+    NavbarComponent,
+    CheckOutComponent
   ],
   imports: [
     BrowserModule,
