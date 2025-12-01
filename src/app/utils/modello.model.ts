@@ -1,4 +1,5 @@
 export interface Modello {
+  [x: string]: any;
   ModelloID: number;
   Nome: string;
   PrezzoBase: number;

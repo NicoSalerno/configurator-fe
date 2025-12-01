@@ -15,6 +15,7 @@ export class ConfiguratorComponent {
   allOptionals!: OptionalModello[];
   groupedOptionals: { [categoria: string]: OptionalModello[] } = {};
   loaded: boolean = false;
+  capote: boolean = false;
 
   protected routeSrv = inject(ActivatedRoute);
   protected configuratorSrv = inject(ConfiguratorService);
@@ -69,6 +70,11 @@ export class ConfiguratorComponent {
         modelloID: this.modelloID,
       },
     });
+  }
+
+  capoteClick(){
+    this.capote = !this.capote
+    console.log("capote: ", this.capote);
   }
 
   ngOnDestroy(): void {

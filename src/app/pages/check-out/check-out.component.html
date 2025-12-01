@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
-
+<div class="title">
+  <h1>La tua {{ name }}</h1>
+</div>
 <div class="layout">
-  <h1>Checkout</h1>
-
   <div *ngIf="loaded" class="container-car">
     <div
       class="car-wrapper"
@@ -19,6 +19,23 @@
         [alt]="optional.NomeOptional"
         class="layer"
       />
+    </div>
+
+    <div *ngFor="let optional of optionals" class="optionals">
+      <div>
+        <p>- {{ optional.NomeCategoria }}:</p>
+      </div>
+      <p>{{ optional.NomeOptional }}</p>
+      <p>{{ optional.Prezzo | number }} €</p>
+    </div>
+
+    <h1>Totale: {{ total | number }} €</h1>
+    <button (click)="CreateFile()" class="start-btn">
+      Salva convigurazione
+    </button>
+
+    <div *ngIf="fileCreato">
+      <p style="color: green">File scaricato</p>
     </div>
   </div>
 </div>

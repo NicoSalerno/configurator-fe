@@ -46,7 +46,7 @@ export class ConfiguratorService {
       );
   }
 
-    Optionals(ModelloID: number) {
+  Optionals(ModelloID: number) {
     return this.http
       .get<OptionalModello[]>(`${this.baseUrl}/optional`, {
         params: { ModelloID: ModelloID.toString() },
@@ -60,33 +60,34 @@ export class ConfiguratorService {
             }`,
           }))
         )
-      ).pipe(
+      )
+      .pipe(
         map((models) =>
           models.map((m) => ({
             ...m,
-            FileImagePaint: `assets/images/paint/${
-              m.FileImage
-            }`,
+            FileImagePaint: `assets/images/paint/${m.FileImage}`,
           }))
         )
-      ).pipe(
+      )
+      .pipe(
         map((models) =>
           models.map((m) => ({
             ...m,
-            FileImageRim: `assets/images/rims/${
-              m.FileImage
-            }`,
+            FileImageRim: `assets/images/rims/${m.FileImage}`,
           }))
         )
-      ).pipe(
+      )
+      .pipe(
         map((models) =>
           models.map((m) => ({
             ...m,
-            FileImageCalipers: `assets/images/calipers/${
-              m.FileImage
-            }`,
+            FileImageCalipers: `assets/images/calipers/${m.FileImage}`,
           }))
         )
       );
+  }
+
+  CreateFile(info: OptionalModello[]) {
+    return this.http.post(`${this.baseUrl}/createFile`, info );
   }
 }
