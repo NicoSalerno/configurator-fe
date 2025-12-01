@@ -14,7 +14,7 @@ export interface OptionalModello {
   FileImageRim: string,
   FileImageCalipers: string,
   FileImage: string,
-  CategoriaOptionalID: 1,
+  CategoriaOptionalID: number,
   NomeCategoria: string,
   OptionalID: number,
   NomeOptional: string,

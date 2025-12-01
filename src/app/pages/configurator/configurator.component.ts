@@ -10,6 +10,7 @@ import { OptionalModello } from 'src/app/utils/modello.model';
   styleUrls: ['./configurator.component.css'],
 })
 export class ConfiguratorComponent {
+[x: string]: any;
   modelloID!: number;
   optionals!: OptionalModello[];
   allOptionals!: OptionalModello[];
@@ -29,6 +30,7 @@ export class ConfiguratorComponent {
       .DefaultOptional(this.modelloID)
       .subscribe((optional) => {
         this.optionals = optional;
+        console.log(this.optionals);
         this.loaded = true;
       });
 

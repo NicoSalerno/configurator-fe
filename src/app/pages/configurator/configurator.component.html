@@ -11,20 +11,27 @@
             : 'url(assets/images/granturismo/sfondo_granturismo.png)'
       }"
     >
-      <button *ngIf="this.capote == false; else apriTpl" (click)="capoteClick()">
-        Chiudi capote
-      </button>
+      <div *ngIf="this.modelloID == 1">
+        <button
+          *ngIf="this.capote == false; else apriTpl"
+          (click)="capoteClick()"
+        >
+          Chiudi capote
+        </button>
 
-      <ng-template #apriTpl>
-        <button (click)="capoteClick()">Apri capote</button>
-      </ng-template>
+        <ng-template #apriTpl>
+          <button (click)="capoteClick()">Apri capote</button>
+        </ng-template>
+      </div>
 
-      <img
-        *ngFor="let optional of optionals"
-        [src]="optional.FileImageSfondo"
-        [alt]="optional.NomeOptional"
-        class="layer"
-      />
+      <ng-container *ngFor="let optional of optionals">
+        <img
+          *ngIf="optional.CategoriaOptionalID !== 4 || capote"
+          [src]="optional.FileImageSfondo"
+          [alt]="optional.NomeOptional"
+          class="layer"
+        />
+      </ng-container>
     </div>
   </div>
 
