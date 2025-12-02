@@ -10,6 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CheckOutComponent } from './pages/check-out/check-out.component';
     ConfiguratorComponent,
     CardComponent,
     NavbarComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

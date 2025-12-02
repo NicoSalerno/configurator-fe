@@ -6,3 +6,8 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+:root {
+  --primary-color: hsl(41, 96%, 56%);
+}
+

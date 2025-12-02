@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+}
+
+.upper{
+    background-color: var(--primary-color);
+}
+
+.chatBody{
+    background-color: white;
+}

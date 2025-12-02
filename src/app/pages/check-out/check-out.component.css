@@ -52,7 +52,7 @@
 }
 
 .start-btn {
-  background-color: hsl(41, 96%, 56%); 
+  background-color: var(--primary-color); 
   color: #1f2937;           
   font-weight: 400;          
   padding: 0.5rem;           
