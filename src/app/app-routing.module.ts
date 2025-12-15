@@ -4,6 +4,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ChoiceComponent } from './pages/choice/choice.component';
 import { ConfiguratorComponent } from './pages/configurator/configurator.component';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path:'check-out',
     component:CheckOutComponent
+  },
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:"register",
+    component:RegisterComponent
   }
 ];
 

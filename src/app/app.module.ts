@@ -11,6 +11,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckOutComponent } from './pages/check-out/check-out.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ChatComponent } from './components/chat/chat.component';
     CardComponent,
     NavbarComponent,
     CheckOutComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
