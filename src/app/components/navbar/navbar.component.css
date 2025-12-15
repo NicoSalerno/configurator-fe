@@ -55,3 +55,7 @@
 .start-btn:hover {
   background-color: #e5e7eb;
 }
+
+button{
+  margin-left: 3rem;
+}
